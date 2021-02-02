@@ -23,7 +23,17 @@
 /*******************************************************************************
  * FUNCTION PROTOTYPES WITH GLOBAL SCOPE
  ******************************************************************************/
+
+ /**
+  * @brief Thread principal donde se maneja la fisica del videojuego
+  * @param entrada puntero al estado del juego
+ */
 void* fisica(void* entrada);
+/**
+ * @brief Thread principal donde se maneja la logica del videojuego
+ * @param direction Evento de tecla de direccion presionada. Ej. DOWNIZQUIERDA, DOWNDERECHA, etc
+ * @param player puntero al jugador (jugador_t*)
+*/
 void movePlayer(int direction, void* player);
 
 #endif //TPFINAL_FISICA_H

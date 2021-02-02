@@ -406,7 +406,7 @@ static void startInGameThreads(pthread_t *fisicas, pthread_t *animaciones, estad
 
 }
 
-static void finishInGameThreads(const pthread_t *fisicas, const pthread_t *animaciones){
+static void finishInGameThreads(pthread_t *fisicas, pthread_t *animaciones){
     stopTimer(PHYSICSTIMER);
     stopTimer(ANIMETIMER);
     pthread_cancel(*fisicas);
