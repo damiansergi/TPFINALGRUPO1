@@ -1,5 +1,5 @@
 /***************************************************************************//**
-  @file     level.c
+  @file     level.h
   @brief    Funciones de inicializacion, manejo y dibujado de aquello relacionado al nivel
  ******************************************************************************/
 

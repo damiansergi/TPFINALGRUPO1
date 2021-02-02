@@ -1,6 +1,6 @@
 /***************************************************************************//**
-  file     +fisica.c+
-  @brief    +archivo de codigo fuente que contiene las funciones para el control de fisicas del juego+
+  file     fisica.c
+  @brief    archivo de codigo fuente que contiene las funciones para el control de fisicas del juego
  ******************************************************************************/
 
 /*******************************************************************************

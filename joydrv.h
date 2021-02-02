@@ -1,5 +1,5 @@
 /***************************************************************************//**
-  @file     disdrv.h
+  @file     joydrv.h
   @brief    Joystick Driver
   @author   Daniel Jacoby, Nicolas Magliola y Pablo Vacatello
  ******************************************************************************/

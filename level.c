@@ -305,7 +305,7 @@ void drawNextLevelScreen(estadoJuego_t *gameState){
 
 void drawPause(estadoJuego_t *gameState){
 
-    al_clear_to_color(al_map_rgb(20, 230, 230));
+    al_clear_to_color(SKYCOLOR);
 
     //dibujo las 3 opciones del menu de pausa
     al_draw_text(gameState->buffer.font[SUPERMARIOFONT120], al_map_rgb(200, 16, 84), (float)SCREENWIDHT/2 - 88, (float)SCREENHEIGHT/6, 0, "PAUSE");
