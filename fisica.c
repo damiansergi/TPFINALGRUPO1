@@ -87,12 +87,10 @@ void* fisica(void* entrada) {
         }
 
         // ACTUALIZACION DE POSICIONES DEL JUGADOR
-        //pthread_mutex_lock(&fisicaMutex);
         gameState->entidades.jugador.fisica.posx +=
                 gameState->entidades.jugador.fisica.velx * (1.0f / (FPS)) * 1000;
         gameState->entidades.jugador.fisica.posy +=
                 gameState->entidades.jugador.fisica.vely * (1.0f / (FPS)) * 1000;
-        //pthread_mutex_unlock(&fisicaMutex);
         if (gameState->entidades.jugador.sobreBloque && gameState->entidades.jugador.fisica.vely != 0) {
             gameState->entidades.jugador.sobreBloque = false;
         }
@@ -104,12 +102,10 @@ void* fisica(void* entrada) {
                     startEnemy(&(gameState->entidades.enemigos[i]));
                 }
                 /* Actualizacion de posicion*/
-                //pthread_mutex_lock(&fisicaMutex);
                 gameState->entidades.enemigos[i].fisica.posx +=
                         gameState->entidades.enemigos[i].fisica.velx * (1.0f / (FPS)) * 1000;
                 gameState->entidades.enemigos[i].fisica.posy +=
                         gameState->entidades.enemigos[i].fisica.vely * (1.0f / (FPS)) * 1000;
-                //pthread_mutex_unlock(&fisicaMutex);
 
                 /*Evaluacion de colisiones con enemigos en pantalla*/
                 if (isColliding(&gameState->entidades.jugador.fisica, &gameState->entidades.enemigos[i].fisica)) {
@@ -237,7 +233,7 @@ void* fisica(void* entrada) {
                                             gameState->entidades.bloques[i].fisica.posy -
                                             (float)gameState->entidades.jugador.fisica.alto;
                                     gameState->entidades.jugador.sobreBloque = true;
-                                } else {
+                                } else {                                            //La cabeza le toco el techo
                                     gameState->entidades.jugador.fisica.posy =
                                             gameState->entidades.bloques[i].fisica.posy +
                                             (float)gameState->entidades.bloques[i].fisica.alto;
