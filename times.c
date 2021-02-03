@@ -10,8 +10,6 @@
 #include "times.h"
 #include <unistd.h>
 
-
-
 /*******************************************************************************
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
@@ -108,21 +106,6 @@ void stopTimer(int timerID) {
     }
 }
 
-void setTimerSecondsPerTick(float newSecondsPerTick, int timerID){
-    eventTimer_t* pTimer;
-    pTimer = timerList;
-
-    while((pTimer->next != NULL) && (pTimer->ID != timerID) ){
-        pTimer = pTimer->next;
-    }
-
-    if(pTimer->ID == timerID) {
-        stopTimer(timerID);
-        pTimer->secondsPerTick = newSecondsPerTick;
-        startTimer(timerID);
-    }
-}
-
 int isPaused(int timerID){
     eventTimer_t* pTimer;
     pTimer = timerList;
@@ -138,28 +121,6 @@ int isPaused(int timerID){
     }
 
     return stateValue;
-}
-
-void destroyTimer(int timerID){
-
-    eventTimer_t* pTimer, *pNextTimer, *pPreviusTimer;
-    pTimer = timerList;
-
-    while((pTimer->next != NULL) && (pTimer->ID != timerID) ){
-        pTimer = pTimer->next;
-    }
-
-    if(pTimer->ID == timerID){
-
-        pNextTimer = pTimer->next;
-        pPreviusTimer = findTimer(timerID-1);
-        pPreviusTimer->next = pNextTimer;
-
-        pTimer->isPaused = 1;
-        pTimer->isRunning = 0;
-        pTimer->ID = NULLENTITIE;
-    }
-
 }
 
 void destroyAllTimers(){

@@ -49,13 +49,6 @@ void setCurrentGameState(void* gs);
 int createNewTimer(float _secondsPerTick, void (*funct)(void*), int ID);
 
 /**
- * @brief TODO: completar descripcion
- * @param param1 Descripcion parametro 1
- * @param param2 Descripcion parametro 2
-*/
-void setTimerSecondsPerTick(float newSecondsPerTick, int timerID);
-
-/**
  * @brief Comienza a correr el timer con el ID que se le paso por parametro. Si el timer no existe, no hace nada.
  * @param timerID identificador del timer que se quiere lanzar
 */
@@ -73,14 +66,6 @@ void stopTimer(int timerID);
  * @return Devuelve 0 si el reloj NO esta pausado o no existe el reloj, 1 si esta pausado
 */
 int isPaused(int timerID);
-
-/**
- * @brief TODO: completar descripcion
- * @param param1 Descripcion parametro 1
- * @param param2 Descripcion parametro 2
- * @return Descripcion valor que devuelve
-*/
-void destroyTimer(int timerID);
 
 /**
  * @brief Libera la memoria de todos los timers que se crearon

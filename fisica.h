@@ -1,7 +1,6 @@
 /***************************************************************************//**
   @file     fisica.h
   @brief    Libreria para motor de fisica
-  @author   Grupo 1
  ******************************************************************************/
 #ifndef TPFINAL_FISICA_H
 #define TPFINAL_FISICA_H
