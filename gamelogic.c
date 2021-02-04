@@ -44,8 +44,10 @@ void *gamelogic (void *p2GameState) {
     unsigned char evento = 0; //Evento leido del buffer de eventos
     
 #if MODOJUEGO == ALLEGRO
-    int livesRecord = 0, numberOfLetter = 0, nombreLleno = 0, powerUpstateRecord = 0, maxLevelsAvailable;
+    int numberOfLetter = 0, nombreLleno = 0;
 #endif
+    
+    int livesRecord = 0, powerUpstateRecord = 0, maxLevelsAvailable;
     
     estadosjuego_t lastGameState;
 

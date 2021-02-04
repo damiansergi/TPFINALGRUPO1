@@ -70,12 +70,6 @@ void drawRetryScreen(estadoJuego_t* gameState);
 void drawGameOverScreen(estadoJuego_t* gameState);
 
 /**
- * @brief Dibuja el menu de pausa. Esta funcion solo esta disponible para el modo allegro, para la raspi es una funcion nula
- * @param gameState puntero a estadoJuego_t donde obtiene la informacion para realizar el dibujado
-*/
-void drawPause(estadoJuego_t *gameState);
-
-/**
  * @brief Se libera el espacio reservado para los bloques y los enemigos, tanto en el original como el backup
  * @param gameState puntero a estadoJuego_t de donde se obtienen los punteros para liberarlos
 */
@@ -112,7 +106,15 @@ int wasNewHighScoreAchieved(estadoJuego_t* gameState);
 */
 void saveNewHighScore(estadoJuego_t* gameState);
 
-#if MODOJUEGO == RASPI
+#if MODOJUEGO == ALLEGRO
+
+/**
+ * @brief Dibuja el menu de pausa. Esta funcion solo esta disponible para el modo allegro, para la raspi es una funcion nula
+ * @param gameState puntero a estadoJuego_t donde obtiene la informacion para realizar el dibujado
+*/
+void drawPause(estadoJuego_t *gameState);
+
+#elif MODOJUEGO == RASPI
 
 /**
  * @brief En el caso de haberse realizado un high score, esta funcion lo avisa en el modo RASPI.

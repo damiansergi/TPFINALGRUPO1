@@ -98,10 +98,12 @@ void *render (void *gs) { // Se encarga de refrescar la pantalla cada cierto tie
                 drawRetryScreen(gameState);
                 break;
 
+#if MODOJUEGO == ALLEGRO
             case PAUSE: //pantalla de pausa
                 drawPause(gameState);
                 break;
-
+#endif
+                
             case NEXTLEVEL: //transición a próximo nivel
                 drawNextLevelScreen(gameState);
                 break;

@@ -330,12 +330,6 @@ void drawPause(estadoJuego_t *gameState){
 
 #elif MODOJUEGO == RASPI
 
-void drawPause(estadoJuego_t *gameState){
-    //NO HAGO NADA, me sirve para mantener render como esta.
-    //Tambien podria poner la compilacion condicional
-}
-
-
 void resetWavePosition(void){
     //NO HAGO NADA, me sirve para mantener gamelogic como esta.
     //Tambien podria poner la compilacion condicional
