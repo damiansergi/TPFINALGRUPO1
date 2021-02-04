@@ -10,17 +10,8 @@
 #include "menu.h"
 #include <unistd.h>
 #include <pthread.h>
-
-
-#if MODOJUEGO == ALLEGRO
-
 #include "allegroLib.h"
-
-#elif MODOJUEGO == RASPI
-
 #include "data.h"
-
-#endif
 
 /*******************************************************************************
  *******************************************************************************
