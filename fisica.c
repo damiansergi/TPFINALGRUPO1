@@ -22,7 +22,7 @@
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
 static int isColliding(fisica_t* object1, fisica_t* object2);
-static void detectCollisions(void* gs);
+static void detectCollisions();
 static void doVulnerable(void* gs);
 
 /*******************************************************************************
@@ -307,7 +307,7 @@ void movePlayer(int direction, void* player){
  *******************************************************************************
  ******************************************************************************/
  //Funcion utilizada para controlar la ejecucion del thread de fisicas. Se ejecuta a traves del modulo times con un timer
-static void detectCollisions(void* gs){
+static void detectCollisions(){
     sem_post(fisicaSem);
  }
 

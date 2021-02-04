@@ -30,10 +30,10 @@ static sem_t* renderSem;
  ******************************************************************************/
 
 #if MODOJUEGO == ALLEGRO
-static void show1UPText(void* gs);
+static void show1UPText();
 #endif
 
-static void redraw(void* gs);
+static void redraw();
 
 /*******************************************************************************
  *******************************************************************************
@@ -155,7 +155,7 @@ void updateCameraPosition(void* gs){ // Se actualiza la posición de la pantalla
 }
 
 
-static void show1UPText(void* gs){
+static void show1UPText(){
 
     static int timescounter = 0;
 
@@ -259,6 +259,6 @@ void resetLastBlockInMap(){ // Asigna NULL a la variable LastBlockInMap
  *******************************************************************************
  ******************************************************************************/
 
-static void redraw(void* gs){ // Función que ejecuta el timer de render
+static void redraw(){ // Función que ejecuta el timer de render
     sem_post(renderSem);
 }

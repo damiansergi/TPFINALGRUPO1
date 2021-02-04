@@ -21,7 +21,7 @@
  * FUNCTION PROTOTYPES FOR PRIVATE FUNCTIONS WITH FILE LEVEL SCOPE
  ******************************************************************************/
 
-static void animacion(void* gs);
+static void animacion();
 static void swimming(void* gs);
 static void movingSeaweed(void* gs);
 static void movingCheepCheep(void* gs);
@@ -110,7 +110,7 @@ void startInGameAnimations(){
  *******************************************************************************
  ******************************************************************************/
 
-static void animacion(void* gs){
+static void animacion(){
     sem_post(animacionSem);
 }
 
