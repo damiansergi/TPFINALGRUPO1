@@ -463,6 +463,8 @@ void drawRetryScreen(estadoJuego_t *gameState){
 }
 
 void drawNextLevelScreen(estadoJuego_t *gameState){
+    
+    gameState->menuSelection = 1; //Hago algo con el puntero simplemente para evitar el warning y cumplir con el prototipo, asi queda mas prolijo
 
     char levelCleared[16][16] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //level Cleared
                                  {0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0},
