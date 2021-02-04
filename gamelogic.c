@@ -41,8 +41,12 @@ void *gamelogic (void *p2GameState) {
 
     pthread_t fisicas, animaciones, endThread;                           //Declaramos los threads de fisicas y animaciones
     estadoJuego_t *gameState = (estadoJuego_t *) p2GameState;
-    unsigned char evento = 0;                                            //Evento leido del buffer de eventos
+    unsigned char evento = 0; //Evento leido del buffer de eventos
+    
+#if MODOJUEGO == ALLEGRO
     int livesRecord = 0, numberOfLetter = 0, nombreLleno = 0, powerUpstateRecord = 0, maxLevelsAvailable;
+#endif
+    
     estadosjuego_t lastGameState;
 
     maxLevelsAvailable = getMaxLevelsAvailable();
