@@ -58,6 +58,10 @@ int inicializarAllegro(){
         salida = 1;
     }
 
+    if(salida == 1){
+        exit(EXIT_FAILURE);
+    }
+
     return salida;
 }
 

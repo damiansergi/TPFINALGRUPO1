@@ -601,6 +601,7 @@ int initEntities(estadoJuego_t* gameState){
     gameState->entidades.bloques = (bloque_t*) malloc(sizeof(bloque_t) * blocksCounter);
     if(gameState->entidades.bloques == NULL){
         printf("Error al reservar espacio para los bloques");
+        exit(EXIT_FAILURE);
         return 1;
     }
 
@@ -609,6 +610,7 @@ int initEntities(estadoJuego_t* gameState){
     gameState->entidades.enemigos = (enemigo_t*) calloc((enemiesCounter+1), sizeof(enemigo_t));
     if(gameState->entidades.enemigos == NULL){
         printf("Error al reservar espacio para los enemigos");
+        exit(EXIT_FAILURE);
         return 1;
     }
     gameState->entidades.enemigos[enemiesCounter].identificador = NULLENTITIE;
@@ -773,6 +775,7 @@ int initEntities(estadoJuego_t* gameState){
     gameState->entidades.bloques = (bloque_t*) realloc(gameState->entidades.bloques , sizeof(bloque_t) * (blocksCounter+1));
     if(gameState->entidades.bloques == NULL){
         printf("Error al reallocar espacio para los bloques");
+        exit(EXIT_FAILURE);
         return 1;
     }
     gameState->entidades.bloques[blocksCounter].identificador = NULLENTITIE;         //Inicializamos el ultimo elemento en nulo

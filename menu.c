@@ -173,6 +173,7 @@ int loadMenuData(){
 
     if(openMenuData(&imgMenuData, &textMenuData) == 1){ //Abrimos el .txt con la info del texto e imagenes del menu
         error = 1;
+        exit(EXIT_FAILURE);
     }
     else {
 

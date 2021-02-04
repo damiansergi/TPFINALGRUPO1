@@ -47,7 +47,7 @@ int openGameStateFile(FILE **gameStateData){
     *gameStateData = fopen(efectivePath, "r+");         //Se abre el archivo buscado
     if(gameStateData == NULL){
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        return 1;
+        exit(EXIT_FAILURE);
     }
     return 0;
 }
@@ -63,7 +63,7 @@ int openLevelData(FILE **levelData, int id){
 
     if(*levelData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s", efectivePath);
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     return 0;
@@ -77,7 +77,7 @@ int openSoundsFile(FILE **soundData){
     *soundData = fopen(efectivePath, "r+");     //Se abre el archivo buscado
     if(*soundData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        return 1;
+        exit(EXIT_FAILURE);
     }
     return 0;
 }
@@ -90,7 +90,7 @@ int openTexturesFile(FILE **texturaData){
     *texturaData = fopen(efectivePath, "r+");           //Se abre el archivo buscado
     if(*texturaData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        return 1;
+        exit(EXIT_FAILURE);
     }
     return 0;
 }
@@ -103,7 +103,7 @@ int openFontsFile(FILE **fontsData){
     *fontsData = fopen(efectivePath, "r+");          //Se abre el archivo buscado
     if(*fontsData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s", efectivePath);
-        return 1;
+        exit(EXIT_FAILURE);
     }
     return 0;
 }
@@ -126,6 +126,10 @@ int openMenuData(FILE **imageMenuData, FILE **textMenuData){
     else if(*textMenuData == NULL){
         printf("Error al abrir el fichero con path: .%s\n", path[MENUTEXT]);
         error = 1;
+    }
+
+    if(error == 1){
+        exit(EXIT_FAILURE);
     }
 
     return error;
