@@ -118,7 +118,7 @@ void saveNewHighScore(estadoJuego_t* gameState);
  * @brief En el caso de haberse realizado un high score, esta funcion lo avisa en el modo RASPI.
  * @param gameState puntero a estadoJuego_t donde obtiene la informacion para realizar el dibujado
 */
-void drawGameOverScreenHighScore(estadoJuego_t* gameState);
+void drawGameOverScreenHighScore();
 
 #endif
 
