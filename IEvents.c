@@ -178,6 +178,8 @@ void * InputEvent(void* gs) {
             }
         }
     }
+
+    pthread_exit(NULL);
 }
 
 #elif MODOJUEGO == ALLEGRO
