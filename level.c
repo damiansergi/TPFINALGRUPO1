@@ -490,7 +490,7 @@ void drawNextLevelScreen(estadoJuego_t *gameState){
     writeDisplay(levelCleared);
 }
 
-void drawGameOverScreenHighScore(estadoJuego_t* gameState){
+void drawGameOverScreenHighScore(){
 
     char highScoreTextMenu[16][16] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //Dibujo HighScore
                                       {1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1},
