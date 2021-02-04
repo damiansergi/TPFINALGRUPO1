@@ -9,7 +9,8 @@
 
 #include "data.h"
 
-#define PATHFORRASPI "./cmake-build-debug/%s"   //En la raspi tenemos que acomodarnos en esta carpeta
+#define PATHFORRASPI ".%s"   //En la raspi tenemos que acomodarnos en esta carpeta
+//#define PATHFORRASPI "./cmake-build-debug/%s"   //En la raspi tenemos que acomodarnos en esta carpeta
                                                 //En modo allegro no porque se compila desde ahi
 #define LEVELPATH "/data/level%d.txt"
 
