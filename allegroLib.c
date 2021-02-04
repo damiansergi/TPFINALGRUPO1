@@ -157,7 +157,7 @@ void destroyResources(bufferRecursos_t *resourcesBuffer){
     endAudio();
     for(int i = 0; i < resourcesBuffer->soundQuant; i++) {
         if (resourcesBuffer->sound[i]->free == 1) {
-            SDL_FreeWAV(resourcesBuffer->sound[i]->bufferTrue);
+            SDL_FreeWAV( (uint8_t*) resourcesBuffer->sound[i]->bufferTrue);
             free(resourcesBuffer->sound[i]);
         }
     }
