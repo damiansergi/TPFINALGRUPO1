@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include "configuracion.h"
+#include <stdlib.h>
 
 /*******************************************************************************
  * CONSTANT AND MACRO DEFINITIONS USING #DEFINE
