@@ -212,7 +212,7 @@ int cargarSonidosMenu(sonido_t **sonido) {
             for (int i = 0; !error && i < cantDeSonidos; i++) {
                 char nextPath[40];
 #if MODOJUEGO == RASPI
-                char effectivePath[60] = "./cmake-build-debug/";
+                char effectivePath[60] = "./";
 #elif  MODOJUEGO == ALLEGRO
                 char effectivePath[60] = "./";
 #endif
