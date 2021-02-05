@@ -199,6 +199,7 @@ int loadGameState(estadoJuego_t *gameState){
     fclose(gameStateData);
 
     if(error == 1){
+        printf("Error al cargar los top scores\n");
         exit(1);
     }
 

@@ -111,13 +111,13 @@ int main (void){
     gameState.buffer.soundQuant = cargarSonidosMenu(&gameState.buffer.sound);
     if(gameState.buffer.soundQuant == -1) {
         destroyResources(&gameState.buffer);
-        return -1;
+        exit(1);
     }
 
     //Cargamos los highscores
     if(loadGameState(&gameState) == 1) {
         printf("Error al cargar los datos del juego");
-        return -1;
+        exit(1);
     }
 
     pthread_create(&EventoJoy, NULL, InputEvent, &gameState);
