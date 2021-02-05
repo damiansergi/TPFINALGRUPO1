@@ -49,6 +49,6 @@ Notar que las tuberias no se distinguen entre si. Esto se debe a que excel no di
 
 ## Integrantes del grupo
 Gonzalo Linares
-Damina Sergi
+Damian Sergi
 Alvaro Christiansen
 Agustin Gullino
