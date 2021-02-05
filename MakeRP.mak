@@ -16,7 +16,7 @@ OBJRASPI = disdrv.o joydrv.o
 
 OBJALLEGRO = main.o IEvents.o fisica.o entidades.o data.o menu.o allegroLib.o level.o gamelogic.o render.o animacion.o times.o
 
-main: $(OBJALLEGRO) $(OBJRASPI) audio.o
+main: $(OBJALLEGRO) $(OBJRASPI) audioRP.o
 main.o: main.c menu.h matiasBrosGame.h raspi.h configuracion.h
 IEvents.o: IEvents.c IEvents.h matiasBrosGame.h raspi.h configuracion.h
 fisica.o: fisica.c fisica.h gamelogic.h matiasBrosGame.h raspi.h configuracion.h

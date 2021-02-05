@@ -13,7 +13,7 @@ LDLIBS =-lSDL2 -lpthread -lallegro_acodec -lallegro_audio -lallegro_color -lalle
 
 OBJALLEGRO = main.o IEvents.o fisica.o entidades.o data.o menu.o allegroLib.o level.o gamelogic.o render.o animacion.o times.o
 
-main: $(OBJALLEGRO) audio.o
+main: $(OBJALLEGRO) audioPC.o
 main.o: main.c menu.h matiasBrosGame.h
 IEvents.o: IEvents.c IEvents.h matiasBrosGame.h allegro.h
 fisica.o: fisica.c fisica.h gamelogic.h
