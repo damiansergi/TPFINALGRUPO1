@@ -191,7 +191,7 @@ static void show1UPText(){
                     disp_write(myPoint, D_ON);                //prende el LED en el buffer
                 }
                 else if (matriz[x][y] == 0){
-                    disp_write(myPoint, D_OFF);                //prende el LED en el buffer
+                    disp_write(myPoint, D_OFF);                //apaga el LED en el buffer
                 }
             }
         }

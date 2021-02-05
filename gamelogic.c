@@ -349,7 +349,7 @@ void *gamelogic (void *p2GameState) {
 
                 #elif MODOJUEGO == RASPI
 
-                //Si hubo un nuevo high score, esperamos a que se ingrese el nombre del jugador
+                //Si hubo un nuevo high score, se guarda el nombre de jugador genérico
                 if(wasNewHighScoreAchieved(gameState)) {
                     gameState->pPlayerName = "Raspberry";
                     saveNewHighScore(gameState);

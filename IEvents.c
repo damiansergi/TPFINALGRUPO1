@@ -94,7 +94,7 @@ void * InputEvent(void* gs) {
     char ultimoEventoBoton = VACIO;
     estadoJuego_t* gameState = (estadoJuego_t*) gs;
 
-    while (gameState->state != GAMECLOSED) { //ACA SERIA MEJOR SETEARLO CON EL TIMER, O PONER UN DELAY EN EL CODIGO
+    while (gameState->state != GAMECLOSED) {
         joy_update();                            //primero actualizo las coordenadas medidas
         myCoords = joy_get_coord();                //luego las guardo en myCoords
         /* Aqui es donde se realiza la traduccion del evento del joystick al buffer*/
