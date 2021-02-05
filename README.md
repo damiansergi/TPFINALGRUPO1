@@ -27,7 +27,7 @@ B;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
 B;0;0;0;0;0;J;0;0;0;0;H;0;2;0;0;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;T;t;t;1;B
 B;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;B
 ```
-Como veran la primera y ultima columna estan contruidas con caracteres 'B', que reprentan los bordes del nivel. Todos los demas caracteres tienen su respectivo significado siguiendo la siguiente clave:
+Como veran la primera y ultima columna estan contruidas con caracteres 'B', que reprentan los bordes del nivel. Ademas los niveles deben tener 16 filas. Todos los demas caracteres tienen su respectivo significado siguiendo la siguiente clave:
 ```
 JUGADOR = 'J'
 BORDE = 'B'
@@ -43,9 +43,12 @@ MIDDLEPIPE = 't'    (Cuerpo del tubo por si se quiere alargar)
 MUSHROOM = 'H'
 ```
 En el repositorio se encuentra un archivo de excel, Nivel.xmls, que tiene programadas reglas de formato para colorear las celdas en funcion del caracter colocado. Esto ayuda mucho en el diseño de los niveles. A continuacion una imagen del nivel mostrado anteriormente:
+![alt text](https://i.imgur.com/hw2QFqo.png)
+
+Notar que las tuberias no se distinguen entre si. Esto se debe a que excel no distingue entre mayusculas y minusculas.
 
 ## Integrantes del grupo
 Gonzalo Linares
-Damina Sergi
+Damian Sergi
 Alvaro Christiansen
 Agustin Gullino
