@@ -27,7 +27,7 @@ B;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;
 B;0;0;0;0;0;J;0;0;0;0;H;0;2;0;0;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;M;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;T;t;t;1;B
 B;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;B
 ```
-Como veran la primera y ultima columna estan contruidas con caracteres 'B', que reprentan los bordes del nivel. Todos los demas caracteres tienen su respectivo significado siguiendo la siguiente clave:
+Como veran la primera y ultima columna estan contruidas con caracteres 'B', que reprentan los bordes del nivel. Ademas los niveles deben tener 16 filas. Todos los demas caracteres tienen su respectivo significado siguiendo la siguiente clave:
 ```
 JUGADOR = 'J'
 BORDE = 'B'
