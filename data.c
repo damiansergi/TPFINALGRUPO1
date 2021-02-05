@@ -47,7 +47,7 @@ int openGameStateFile(FILE **gameStateData){
     *gameStateData = fopen(efectivePath, "r+");         //Se abre el archivo buscado
     if(gameStateData == NULL){
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
     return 0;
 }
@@ -63,7 +63,7 @@ int openLevelData(FILE **levelData, int id){
 
     if(*levelData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s", efectivePath);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     return 0;
@@ -77,7 +77,7 @@ int openSoundsFile(FILE **soundData){
     *soundData = fopen(efectivePath, "r+");     //Se abre el archivo buscado
     if(*soundData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
     return 0;
 }
@@ -103,7 +103,7 @@ int openFontsFile(FILE **fontsData){
     *fontsData = fopen(efectivePath, "r+");          //Se abre el archivo buscado
     if(*fontsData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s", efectivePath);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
     return 0;
 }
@@ -114,7 +114,7 @@ int openMenuData(FILE **imageMenuData, FILE **textMenuData){
     int error = 0;
 
     sprintf(efectivePath, ".%s", path[MENUIMG]);    //Se busca el path correspondiente en el arreglo path
-    *imageMenuData = fopen(efectivePath, "r+"); //Se abre el archivo buscado
+    *imageMenuData = fopen(efectivePath, "r+");     //Se abre el archivo buscado
 
     sprintf(efectivePath, ".%s", path[MENUTEXT]);   //Se busca el path correspondiente en el arreglo path
     *textMenuData = fopen(efectivePath, "r+");      //Se abre el archivo buscado
@@ -171,7 +171,7 @@ int openGameStateFile(FILE **gameStateData){
     *gameStateData = fopen(efectivePath, "r+");             //Se abre el archivo buscado
     if(gameStateData == NULL){
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        return 1;
+        exit(1);
     }
     return 0;
 }
@@ -186,7 +186,7 @@ int openLevelData(FILE **levelData, int id){
     *levelData = fopen(efectivePath, "r+");                 //Se abre el archivo buscado
     if(*levelData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s", efectivePath);
-        return 1;
+        exit(1);
     }
     return 0;
 }
@@ -199,7 +199,7 @@ int openSoundsFile(FILE **soundData){
     *soundData = fopen(efectivePath, "r+");                    //Se abre el archivo buscado
     if(*soundData == NULL){        //Error al cargar el archivo
         printf("Error al abrir el fichero con path: %s\n", efectivePath);
-        return 1;
+        exit(1);
     }
     return 0;
 }

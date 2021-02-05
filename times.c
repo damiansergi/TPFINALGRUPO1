@@ -69,6 +69,7 @@ int createNewTimer(float _secondsPerTick, void (*funct)(void*), int ID){
         else{
             printf("Error al reservar espacio para el timer ID: %d\n", ID);     //Si hubo un error devolvemos un -1
             salida = -1;
+            exit(1);
         }
     }
 

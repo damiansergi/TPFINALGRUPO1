@@ -29,12 +29,12 @@ int main(void) {
 
     //Inicializamos allegro, los recursos del juego y verificamos que se haya hecho correctamente
     if(inicializarAllegro() == 1) {
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     // Inicializamos el audio
     if(SDL_Init(SDL_INIT_AUDIO) != 0){
-        exit(EXIT_FAILURE);
+        exit(1);
     }
     initAudio();
 
@@ -42,33 +42,33 @@ int main(void) {
     gameState.buffer.imageQuant = cargarTexturasMenu(&gameState.buffer.image);
     if(gameState.buffer.imageQuant == -1) {
         destroyResources(&gameState.buffer);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     //Cargamos los sonidos
     gameState.buffer.soundQuant = cargarSonidosMenu(&gameState.buffer.sound);
     if(gameState.buffer.soundQuant == -1) {
         destroyResources(&gameState.buffer);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     //Cargamos las fuentes
     gameState.buffer.fontQuant = cargarFuentesMenu(&gameState.buffer.font);
     if(gameState.buffer.fontQuant == -1){
         destroyResources(&gameState.buffer);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     //Cargamos los highscores
     if(loadGameState(&gameState) == 1) {
         destroyResources(&gameState.buffer);
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     //Cargamos datos de imagenes y texto del menu
     if(loadMenuData() == 1){
         printf("Error al cargar la data del menu");
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     //Lanzamos los threads del juego

@@ -597,8 +597,7 @@ int initEntities(estadoJuego_t* gameState){
     gameState->entidades.bloques = (bloque_t*) malloc(sizeof(bloque_t) * blocksCounter);
     if(gameState->entidades.bloques == NULL){
         printf("Error al reservar espacio para los bloques");
-        exit(EXIT_FAILURE);
-        return 1;
+        exit(1);
     }
 
 
@@ -606,8 +605,7 @@ int initEntities(estadoJuego_t* gameState){
     gameState->entidades.enemigos = (enemigo_t*) calloc((enemiesCounter+1), sizeof(enemigo_t));
     if(gameState->entidades.enemigos == NULL){
         printf("Error al reservar espacio para los enemigos");
-        exit(EXIT_FAILURE);
-        return 1;
+        exit(1);
     }
     gameState->entidades.enemigos[enemiesCounter].identificador = NULLENTITIE;
 
@@ -775,8 +773,7 @@ int initEntities(estadoJuego_t* gameState){
     gameState->entidades.bloques = (bloque_t*) realloc(gameState->entidades.bloques , sizeof(bloque_t) * (blocksCounter+1));
     if(gameState->entidades.bloques == NULL){
         printf("Error al reallocar espacio para los bloques");
-        exit(EXIT_FAILURE);
-        return 1;
+        exit(1);
     }
     gameState->entidades.bloques[blocksCounter].identificador = NULLENTITIE;         //Inicializamos el ultimo elemento en nulo
 
@@ -800,57 +797,65 @@ int cargarMapa(level_t* level, int id) {
         countColumns(level, mapData);   //Contamos las columnas del mapa
         //Reservamos la memoria para cargarlo
         level->level = (int **) calloc( level->levelHeight, sizeof(int *));
-        for (i = 0; i < level->levelHeight; i++) {
-            (level->level)[i] = (int*) malloc(level->levelWidht * sizeof(int));
+
+        if(level->level == NULL){
+            printf("Error al reservar espacio para cargar el nivel en la funcion cargarMapa\n");
+            exit(1);
         }
+        else {
+            for (i = 0; i < level->levelHeight; i++) {
+                (level->level)[i] = (int *) malloc(level->levelWidht * sizeof(int));
+            }
 
-        i = 0;
+            i = 0;
 
-        //Ahora guardamos en cada una de las posiciones reservados el correspondiente identificador de cada bloque
-        do {
-            read = fgetc(mapData);
+            //Ahora guardamos en cada una de las posiciones reservados el correspondiente identificador de cada bloque
+            do {
+                read = fgetc(mapData);
 
-            switch (read) {
-                case MONEDA:
-                case MUSHROOM:
-                case TOPPIPE:
-                case MIDDLEPIPE:
-                case FASTCHEEPCHEEP:
-                case SLOWCHEEPCHEEP:
-                case PULPITO:
-                case ALGA:
-                case LADRILLO:
-                case JUGADOR:
-                case NADA:
-                    level->level[i][j] = read;
+                switch (read) {
+                    case MONEDA:
+                    case MUSHROOM:
+                    case TOPPIPE:
+                    case MIDDLEPIPE:
+                    case FASTCHEEPCHEEP:
+                    case SLOWCHEEPCHEEP:
+                    case PULPITO:
+                    case ALGA:
+                    case LADRILLO:
+                    case JUGADOR:
+                    case NADA:
+                        level->level[i][j] = read;
+                        j++;
+                        auxCont = 0;
+                        break;
+                    case ';':
+                        auxCont++;
+                        break;
+                    case BORDE:
+                        borderCount++;
+                        if (borderCount == 2) {
+                            i++;
+                            j = 0;
+                            borderCount = 0;
+                        }
+                        auxCont = 0;
+                        break;
+                    default:
+                        break;
+
+                }
+                if (auxCont == 2) {
+                    level->level[i][j] = NADA;
                     j++;
-                    auxCont = 0;
-                    break;
-                case ';':
-                    auxCont++;
-                    break;
-                case BORDE:
-                    borderCount++;
-                    if (borderCount == 2){
-                        i++;
-                        j = 0;
-                        borderCount = 0;
-                    }
-                    auxCont = 0;
-                    break;
-                default:
-                    break;
-
-            }
-            if (auxCont == 2){
-                level->level[i][j] = NADA;
-                j++;
-                auxCont--;
-            }
-        }while (read != EOF);
+                    auxCont--;
+                }
+            } while (read != EOF);
+        }
     }
     else{
         printf("Error al cargar el mapa\n");
+        exit(1);
     }
 
     fclose(mapData);

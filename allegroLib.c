@@ -59,7 +59,7 @@ int inicializarAllegro(){
     }
 
     if(salida == 1){
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     return salida;
@@ -72,13 +72,14 @@ int cargarTexturasMenu(image_t **textura){
         FILE *texturaData;
 
         if(openTexturesFile(&texturaData) == 1) {       //Abrimos el archivo con la informacion sobre las texturas
-            return -1;
+            error = 1;
         }
         else {
             fscanf(texturaData, "%d", &cantDeTexturas);
             *textura = malloc(sizeof(image_t) * cantDeTexturas);    //Reservamos espacio para todas las texturas
             if(*textura == NULL) {
-                 error = 1;
+                printf("Error al reservar espacio de memoria para las texturas");
+                error = 1;
             }
             else{
                 for (int i = 0; !error && i < cantDeTexturas; i++) {    //Cargamos cada una de las texturas
@@ -95,11 +96,12 @@ int cargarTexturasMenu(image_t **textura){
         }
 
         fclose(texturaData);
-        if (error){
-            return -1;
-        } else {
-            return cantDeTexturas;
+
+        if (error == 1) {
+            exit(1);
         }
+
+        return cantDeTexturas;
 }
 
 int cargarFuentesMenu(fuente_t **fuente) {
@@ -108,32 +110,39 @@ int cargarFuentesMenu(fuente_t **fuente) {
     FILE *fuenteData;
 
     if (openFontsFile(&fuenteData) == 1) {  //Abrimos el archivo con la informacion sobre las fuentes
-        return -1;
+        error = 1;
     } else {
         fscanf(fuenteData, "%d", &cantDeFuentes);
         *fuente = (fuente_t *) malloc(sizeof(fuente_t) * cantDeFuentes);    //Reservamos espacio para todas las fuentes
-        for (int i = 0; !error && i < cantDeFuentes; i++) {
-            char path[50];
-            int fontSize = 0;
-            fscanf(fuenteData, "%s %d", path, &fontSize);
-            (*fuente)[i] = al_load_font(path, fontSize, 0);  //Cargamos cada una de las fuentes
-            if (*fuente == NULL) {
-                error = 1;
-            } else {
-                if ((*fuente)[i] == NULL) {
-                    printf("couldn't load %s\n", path);
+        if(fuente != NULL) {
+            for (int i = 0; !error && i < cantDeFuentes; i++) {
+                char path[50];
+                int fontSize = 0;
+                fscanf(fuenteData, "%s %d", path, &fontSize);
+                (*fuente)[i] = al_load_font(path, fontSize, 0);  //Cargamos cada una de las fuentes
+                if (*fuente == NULL) {
                     error = 1;
+                } else {
+                    if ((*fuente)[i] == NULL) {
+                        printf("couldn't load %s\n", path);
+                        error = 1;
+                    }
                 }
             }
+        }
+        else {
+            printf("Error al reservar espacio de memoria para las fuentes");
+            error = 1;
         }
     }
 
     fclose(fuenteData);
-    if (error){
-        return -1;
-    } else {
-        return cantDeFuentes;
+
+    if (error == 1) {
+        exit(1);
     }
+
+    return cantDeFuentes;
 
 }
 
@@ -157,7 +166,7 @@ void destroyResources(bufferRecursos_t *resourcesBuffer){
     endAudio();
     for(int i = 0; i < resourcesBuffer->soundQuant; i++) {
         if (resourcesBuffer->sound[i]->free == 1) {
-            SDL_FreeWAV( (uint8_t*) resourcesBuffer->sound[i]->bufferTrue);
+            SDL_FreeWAV((uint8_t*)resourcesBuffer->sound[i]->bufferTrue);
             free(resourcesBuffer->sound[i]);
         }
     }
@@ -172,7 +181,7 @@ int loadGameState(estadoJuego_t *gameState){
     FILE* gameStateData;
 
     if(openGameStateFile(&gameStateData) == 1){ //Abrimos el archivo con la informacion sobre los highscores
-        return -1;
+        error = 1;
     }
     else{
         fscanf(gameStateData, "%d", &(gameState->maxTopScoreEntries) );
@@ -188,6 +197,11 @@ int loadGameState(estadoJuego_t *gameState){
     gameState->menuSelection = 0;
 
     fclose(gameStateData);
+
+    if(error == 1){
+        exit(1);
+    }
+
     return error;
 }
 
@@ -235,9 +249,10 @@ int cargarSonidosMenu(sonido_t **sonido) {
     }
 
     fclose(sonidoData);
-    if (error) {
-        return -1;
-    } else {
-        return cantDeSonidos;
+
+    if (error == 1) {
+        exit(1);
     }
+
+    return cantDeSonidos;
 }

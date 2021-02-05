@@ -173,7 +173,7 @@ int loadMenuData(){
 
     if(openMenuData(&imgMenuData, &textMenuData) == 1){ //Abrimos el .txt con la info del texto e imagenes del menu
         error = 1;
-        exit(EXIT_FAILURE);
+        exit(1);
     }
     else {
 
@@ -182,7 +182,9 @@ int loadMenuData(){
         menu.imgQuant = cantDeElementos;
         menu.imgMenu = (image_menu_t *) malloc(sizeof(image_menu_t) * (cantDeElementos));
         if (menu.imgMenu == NULL) {
+            printf("Error al reservar espacio para las imagenes del menu\n");
             error = 1;
+            exit(1);
         } else {
             for (i = 0; i < cantDeElementos; i++) {
                 fscanf(imgMenuData, "%f %f %f", &menu.imgMenu[i].x, &menu.imgMenu[i].y, &menu.imgMenu[i].scale);
@@ -193,7 +195,9 @@ int loadMenuData(){
             menu.textQuant = cantDeElementos;
             menu.textMenu = (text_menu_t *) malloc(sizeof(text_menu_t) * (cantDeElementos));
             if (menu.textMenu == NULL) {
+                printf("Error al reservar espacio para los textos del menu\n");
                 error = 1;
+                exit(1);
             } else {
                 for (i = 0; i < cantDeElementos; i++) {
                     fscanf(textMenuData, "%d %d %d %f %f %s", &menu.textMenu[i].r, &menu.textMenu[i].g, &menu.textMenu[i].b,
