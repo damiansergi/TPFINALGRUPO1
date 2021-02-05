@@ -275,7 +275,7 @@ void *gamelogic (void *p2GameState) {
                 finishInGameThreads(&fisicas, &animaciones);            //Cerramos la fisica y las animaciones
                 clearEntities(gameState);                               //Eliminamos las entidades
 
-                sleep(1);
+                sleep(2);
                 gameState->state = INGAME;                              //Vamos al siguiente nivel
 
                 break;
