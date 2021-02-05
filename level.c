@@ -640,6 +640,10 @@ int initEntities(estadoJuego_t* gameState){
                         gameState->entidades.bloques[blocksIndex].fisica.ancho += PIXELSPERUNIT;
                         blocksCounter--;        //Cada vez que unimos un bloque, disminuimos la cantidad de bloques totales
                     }
+                    if (j == gameState->level.levelWidht-1){    //Si estamos en el borde tenemos que dejar de unir 
+                        blocksIndex++;                  //Avanzamos el indice de bloques al siguiente
+                        horizontalBlocksCounter = 0;    //Terminamos de contar el grupo de bloques actuales
+                    }
                     break;
 
                 case MONEDA:
