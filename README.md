@@ -43,6 +43,9 @@ MIDDLEPIPE = 't'    (Cuerpo del tubo por si se quiere alargar)
 MUSHROOM = 'H'
 ```
 En el repositorio se encuentra un archivo de excel, Nivel.xmls, que tiene programadas reglas de formato para colorear las celdas en funcion del caracter colocado. Esto ayuda mucho en el diseño de los niveles. A continuacion una imagen del nivel mostrado anteriormente:
+![alt text](https://imgur.com/a/auYDCqw)
+
+Notar que las tuberias no se distinguen entre si. Esto se debe a que excel no distingue entre mayusculas y minusculas.
 
 ## Integrantes del grupo
 Gonzalo Linares
