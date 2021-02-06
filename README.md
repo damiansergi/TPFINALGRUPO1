@@ -1,5 +1,5 @@
 # TPFINALGRUPO1
-En el presente repositorio se encuentra el trabajo practico final realizado por el grupo 1 del cuatrimestre 2 de 2020, para ser presentado en febrero
+En el presente repositorio se encuentra el trabajo practico final realizado por el grupo 1 del cuatrimestre 2 de 2020, para ser presentado en febrero. El proyecto es un juego basado en los niveles bajo el agua del famoso Super Mario Bros. Nuestro programa lleva de nombre Super Matias Bros.
 
 ## Compilacion
 El repositorio incluye un archivo bash, Compile.sh, con el cual se puede compilar el codigo para la raspberry o para la pc. Al ejecutarlo preguntara por la plataforma a compilar.
