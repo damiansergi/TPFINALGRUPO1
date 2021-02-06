@@ -5,7 +5,7 @@ En el presente repositorio se encuentra el trabajo practico final realizado por 
 El repositorio incluye un archivo bash, Compile.sh, con el cual se puede compilar el codigo para la raspberry o para la pc. Al ejecutarlo preguntara por la plataforma en uso.
 
 ## Documentacion 
-La documentacion se encuentra en [aqui](./documentacion.pdf), y se incluye como .PDF generado con doxygen. Una mejor alternativa para visualizarla es tpfinal.ddns.net:45565 (200.81.179.68:45565, por si no funciona no-ip).
+La documentacion se encuentra en [aqui](./documentacion), y se incluye como .PDF generado con doxygen. Una mejor alternativa para visualizarla es tpfinal.ddns.net:45565 (200.81.179.68:45565, por si no funciona no-ip).
 
 ## Edicion de niveles
 Los niveles estan guardados dentro de la carpeta ./data. Se cargan de forma dinamica y deben respetar el nombre: "level[Numero del nivel].txt". Son archivos .csv (coma separated value, en nuestro caso se debe utilizar como separador el ';') convertidos a texto plano, y pueden ser modificados por una planilla de calculo o directamente desde un editor de texto. Para que funcionen correctamente los niveles deben tener un formato similar a este:
