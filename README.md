@@ -52,3 +52,7 @@ Gonzalo Linares
 Damian Sergi
 Alvaro Christiansen
 Agustin Gullino
+
+
+## Creditos
+Modulo de audio (audio.c, audio.h). Creador original: https://github.com/jakebesworth/Simple-SDL2-Audio
