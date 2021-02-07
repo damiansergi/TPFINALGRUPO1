@@ -1,6 +1,11 @@
 # TPFINALGRUPO1
 En el presente repositorio se encuentra el trabajo practico final realizado por el grupo 1 del cuatrimestre 2 de 2020, para ser presentado en febrero. El proyecto es un juego basado en los niveles bajo el agua del famoso Super Mario Bros. Nuestro programa lleva de nombre Super Matias Bros.
 
+## Controles del juego
+El videojuego puede jugarse en una pc con allegro o en una raspberrypi con un display matricial de 16x16 y un joystick.
+En el caso del modo allegro utilizaremos puramente el teclado. Las flechas para moverse, la barra espaciadora para realizar las selecciones, y el boton P o el boton ESC para pausar el juego.
+En el otro caso se utilizara el joystick, pudiendo este moverse en cualquier direccion, y el boton que el mismo tiene integrado para realizar las selecciones.
+
 ## Compilacion
 El repositorio incluye un archivo bash, Compile.sh, con el cual se puede compilar el codigo para la raspberry o para la pc. Al ejecutarlo preguntara por la plataforma en uso.
 
