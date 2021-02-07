@@ -72,8 +72,6 @@ unsigned char getInputEvent (void);
 */
 void storeInputEvent (unsigned char evento);
 
-//TODO: Borrar esBufferVacio si todavia no se usa antes de entregarlo
-
 /**
  * @brief Checkea si el buffer esta vacio
  * @return Devuelve 1 en el caso de que el buffer este vacio, y 0 en el caso contrario

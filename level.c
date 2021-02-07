@@ -11,8 +11,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-//TODO: Si se rompio en la raspi es porque meti times.h y gamelogic.h aca, en caso contrario borra este comentario
-
 #if MODOJUEGO == ALLEGRO
 
 #include "allegro.h"
