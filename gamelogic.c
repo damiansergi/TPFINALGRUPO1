@@ -75,7 +75,7 @@ void *gamelogic (void *p2GameState) {
 
         switch (gameState->state) {
             case MENU: //Menu
-                if (evento == DOWNBOTON) {                          //Si se presiono el espacio, o el boton de la raspi decidimos adonde ir
+                if (evento == DOWNBOTON || evento == DOWNENTER) {                          //Si se presiono el espacio, o el boton de la raspi decidimos adonde ir
                     switch (gameState->menuSelection) {
                         case LEVELSELECTOR:
                             gameState->state = CHOOSINGLEVEL;
@@ -109,6 +109,7 @@ void *gamelogic (void *p2GameState) {
                         }
                         break;
                     case DOWNBOTON:
+                    case DOWNENTER:
                         gameState->state = INGAME;  //Si se apreto enter, comenzamos el nivel
                         break;
                     case DOWNESCAPE:
@@ -121,7 +122,7 @@ void *gamelogic (void *p2GameState) {
                 break;
 
             case INSCORETABLE: //Tabla de scores
-                if (evento == DOWNBOTON) {  //Salimos de la tabla de escores al apretar el espacio o el boton de la raspi
+                if (evento == DOWNBOTON || evento == DOWNENTER) {  //Salimos de la tabla de escores al apretar el espacio o el boton de la raspi
                     usleep(100000);
                     gameState->state = MENU;
                 }
@@ -226,6 +227,7 @@ void *gamelogic (void *p2GameState) {
                         gameState->state = INGAME;                  //Despauseamos el juego
                         break;
                     case DOWNBOTON:
+                    case DOWNENTER:
                         switch (gameState->pauseSelection) {        //Si se presiono espacio
                             case RESUME:
                                 startTimer(INGAMETIMER);
@@ -281,6 +283,7 @@ void *gamelogic (void *p2GameState) {
                 break;
 
             case RETRYSCREEN:
+
                 sleep(2);
                 resetWavePosition();
                 gameState->state = INGAME;
@@ -321,7 +324,7 @@ void *gamelogic (void *p2GameState) {
 
 
                     //Si se presiono enter, guardamos el score y volvemos al menu
-                    if (evento == UPENTER && numberOfLetter > 0) {
+                    if ((evento == DOWNENTER || evento == DOWNBOTON) && numberOfLetter > 0) {
                         saveNewHighScore(gameState);
                         initUI(&gameState->gameUI);
                         resetLastBlockInMap();
@@ -344,7 +347,6 @@ void *gamelogic (void *p2GameState) {
                     gameState->menuSelection = LEVELSELECTOR;
                     gameState->state = MENU;
                     playMusicFromMemory(gameState->buffer.sound[SUPERMARIOTHEME], gameState->buffer.sound[SUPERMARIOTHEME]->volume);
-
                 }
 
                 #elif MODOJUEGO == RASPI
